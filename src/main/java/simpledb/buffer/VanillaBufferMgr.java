@@ -80,8 +80,7 @@ public class VanillaBufferMgr implements BufferMgr {
     * @param blk a reference to a disk block
     * @return the buffer pinned to that block
     */
-   public synchronized Buffer pin(BlockId blk) {
-      
+   public synchronized Buffer pin(BlockId blk) { 
       try {
          referenceCnt++;
          long timestamp = System.currentTimeMillis();
