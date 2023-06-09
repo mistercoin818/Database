@@ -74,6 +74,8 @@ public class MidInsBufferMgr implements BufferMgr {
       }
       allocatedBuffer.clear();
       numAvailable = numbuffs;
+      numOfFreeBuf = numbuffs;
+      numOfUnpinBuf = 0;
       // isFull = false;
    }
 
@@ -171,7 +173,7 @@ public class MidInsBufferMgr implements BufferMgr {
 
    private Buffer findExistingBuffer(BlockId blk) {
       Buffer buff = allocatedBuffer.get(blk);
-      if(buff != null){ // find page
+      if(buff != null){
          hitCnt++;
          lruList.remove(buff);
          lruList.addFirst(buff);
